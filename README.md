@@ -10,8 +10,9 @@ let : English word 'let'
 
 ```javascript
 // Hey computer, can you please
-let // this
-  night = "wonderful";
+let 
+// this
+night = "wonderful";
 ```
 
 | .           |   var    |  let  | const |
