@@ -1,6 +1,10 @@
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // const http = require("http").Server(app);
 /*
 http
@@ -30,8 +34,12 @@ app.use(morgan("dev"));
 // api 구현
 app.get("/", (req, res, next) => {
   console.log("api");
+  res.status(200);
   res.send("비밀 데이터");
 });
+
+// 라우터 등록
+app.use("/user", require("./route"));
 
 app.listen(9001, () => {
   console.log("9001 실행중");
