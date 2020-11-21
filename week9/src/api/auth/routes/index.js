@@ -1,0 +1,20 @@
+const { loginValidator, registerValidator } = require("../../middleware/auth.validator");
+const { register, login } = require("../controllers");
+
+const router = require("express").Router();
+
+/**
+ * @description 회원가입
+ * @routes POST /auth/register
+ * @requset @body {email, name, password}
+ */
+router.post("/register", registerValidator, register);
+
+/**
+ * @description 로그인
+ * @routes POST /auth/login
+ * @requset @body {email, name, password}
+ */
+router.post("/login", loginValidator, login);
+
+module.exports = router;
